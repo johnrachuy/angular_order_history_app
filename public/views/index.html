@@ -25,10 +25,13 @@
 
       <div class="col-md-8">
         <div ng-repeat="x in orders">
-          <p>{{x.order_date}} {{x.order_id}}  </p>
-          <p>
-            {{x.product_id}} {{x.description}} {{x.unit_price}}
-          </p>
+          <p><strong>Order Date:</strong> {{x.order_date | date}}</p>
+          <p><strong>Order Number:</strong> {{x.order_id}}  </p>
+          <p><strong>Shipped to:</strong> {{x.address_type}} : {{x.street}}, {{x.city}}, {{x.state}} {{x.zip}} </p>
+
+          <p><strong>ID Number:</strong> {{x.product_id}} <strong>Desc:</strong> {{x.description}} <strong>Unit Price:</strong> {{x.unit_price}} <strong>Qty:</strong> {{x.quantity}} <strong>Total:</strong> {{x.unit_price * x.quantity | currency}}</p>
+          <hr />
+
 
         </div>
       </div>
