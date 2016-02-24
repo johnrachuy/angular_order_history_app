@@ -26,7 +26,7 @@ console.log(param);
     }).then(function(response) {
       var data = response.data;
         console.log(data);
-        // $scope.orders = response.data;
+        $scope.orders = response.data;
     });
   };
 
