@@ -14,11 +14,11 @@
 <body ng-app="myApp">
   <div class="container" ng-controller="IndexController">
       <div ng-repeat="x in customers">
-        <h2> customer: {{x.id}} {{x.first_name}} {{x.last_name}}  </h2>
+        <P>customer: {{x.id}} {{x.first_name}} {{x.last_name}}  <button ng-click>Get Orders</button></P>
       </div>
 
     <div ng-repeat="x in orders">
-      <h2> order: {{x.id}} {{x.description}} {{x.unit_price}}  </h2>
+      <p>order: {{x.id}} {{x.description}} {{x.unit_price}}</p>
     </div>
 
 
