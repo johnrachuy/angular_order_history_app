@@ -14,7 +14,7 @@
 <body ng-app="myApp">
   <div class="container" ng-controller="IndexController">
       <div ng-repeat="x in customers">
-        <P>customer: {{x.id}} {{x.first_name}} {{x.last_name}}  <button ng-click>Get Orders</button></P>
+        <P>customer: {{x.id}} {{x.first_name}} {{x.last_name}}  <button ng-click="assignData(x.id)">Get Orders</button></p>
       </div>
 
     <div ng-repeat="x in orders">

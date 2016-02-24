@@ -8,11 +8,21 @@ if(process.env.DATABASE_URL !== undefined) {
     connectionString = 'postgres://localhost:5432/joins_challenge';
 }
 
-router.get('/', function(req, res) {
+router.get('/:id', function(req, res) {
+
+    var customerId = req.params.id;
+    console.log(customerId);
+    //
+    // var customerId2 = req.body.data.id;
+    // console.log('body.id' + customerId2);
+
+
     var results = [];
+// console.log($scope.customers.id);
 
     pg.connect(connectionString, function(err, client, done) {
-        var query = client.query('SELECT * FROM products');
+        var query = client.query('SELECT * FROM addresses JOIN orders ON orders.address_id=addresses.id JOIN line_items ON orders.id=line_items.order_id JOIN products ON products.id=line_items.product_id WHERE addresses.customer_id= $1 ORDER BY order_date ASC; ',
+        [customerId]);
 
         // Stream results back one row at a time
         query.on('row', function(row) {
@@ -34,3 +44,13 @@ router.get('/', function(req, res) {
 });
 
 module.exports = router;
+
+
+// ('SELECT * FROM addresses
+// JOIN orders ON
+// orders.address_id=addresses.id
+// JOIN line_items
+// ON orders.id=line_items.order_id
+// JOIN products
+// ON products.id=line_items.product_id
+// WHERE addresses.customer_id= 1; ')
