@@ -13,13 +13,13 @@
 
 <body ng-app="myApp">
   <div class="container" ng-controller="IndexController">
+    <div class="jumbotron"><h1>Iota Order History App</h1></div>
     <div class="row">
       <div class="col-md-4">
         <div ng-repeat="x in customers">
           <p>
-          customer: {{x.id}} {{x.first_name}} {{x.last_name}}
-          <button ng-click="assignData(x.id)" class="btn-primary">Get Orders</button>
-          </p>
+          <p><strong>Customer ID: </strong>{{x.id}} <strong>Name: </strong>{{x.first_name}} {{x.last_name}}
+          <button ng-click="assignData(x.id)" class="btn-primary">Get Orders</button></p>
         </div>
       </div>
 
